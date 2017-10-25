@@ -26,7 +26,7 @@ def read_and_decode(path):
     filenames = ['{}_{}.tfrecords'.format(path, i) for i in range(0, 30)]
     return read_and_decode_single_example(filenames)
 
-data_sets = input_data.read_data_sets('/data/mnist')
+data_sets = input_data.read_data_sets(expanduser('~') + '/data/mnist_tfrecords')
 mnist_mean = np.mean(data_sets.train.images, axis=0)
 mnist_std = np.std(data_sets.train.images, axis=0)
 
